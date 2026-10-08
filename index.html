@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Kelompok 11</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: #023a757a;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+        }
+
+        /* Container Card */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Style Kartu Utama */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 210px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            /* Layout Flexbox Kolom untuk menyelaraskan elemen di dalam kartu */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Style Lingkaran Foto */
+        .card-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .img-budi {
+            background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200');
+        }
+
+        .img-siti {
+            background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200');
+        }
+
+        .img-rian {
+            background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200');
+        }
+
+        .img-dewi {
+            background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200');
+        }
+
+        .img-eko {
+            background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200');
+        }
+
+        /* Text & Tombol */
+        .card h3 {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .card .role {
+            color: #007bff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Mengunci posisi tombol di paling bawah kartu */
+        .card button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: auto; /* Mendorong tombol ke posisi paling bawah */
+            align-self: center; /* Memastikan tombol tetap di tengah horizontal */
+            width: fit-content;
+        }
+
+        .card button:hover {
+            background: #0056b3;
+        }
+
+        /* Style Popup Detail Biodata */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 280px;
+            text-align: left;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            font-size: 0.85rem;
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .close-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Portofolio Kelompok 11</h1>
+    </header>
+
+    <!-- Content Utama -->
+    <main>
+        <div class="container">
+            <!-- Orang 1 -->
+            <div class="card">
+               <img class="card-img"  src="image/fauzi.jpeg" alt="">
+                <h3>M Fauzi</h3>
+                <div class="role">Ketua Kelompok</div>
+                <button onclick="lihatBiodata('M Fauzi', '0110226077', 'Artificial Intelligence ', 'Workout dan tenis meja')">Biodata</button>
+            </div>
+
+            <!-- Orang 2 -->
+            <div class="card">
+                <img class="card-img"  src="image/hafi.jpeg" alt="">
+                <h3>Muhammad Bisyrul Hafi</h3>
+                <div class="role">Anggota Kelompok</div>
+                <button onclick="lihatBiodata('Muhammad Bisyrul Hafi', '0110226130', 'Cyber Security', 'Badminton dan futsal')">Biodata</button>
+            </div>
+
+            <!-- Orang 3 -->
+            <div class="card">
+                <img class="card-img"  src="image/tungs.jpeg" alt="">
+                <h3>Muhammad Dandi Sabil</h3>
+                <div class="role">Anggota Kelompok</div>
+                <button onclick="lihatBiodata('Muhammad Dandi Sabil', '0110226185', 'Cyber Security', 'Basket dan futsal')">Biodata</button>
+            </div>
+
+            <!-- Orang 4 -->
+            <div class="card">
+                <img class="card-img"  src="image/firas.jpeg" alt="">
+                <h3>Muhammad Firas Alfairobi</h3>
+                <div class="role">Anggota Kelompok</div>
+                <button onclick="lihatBiodata('Muhammad Firas Alfairobi', '0110226028', 'Cyber Security', 'Hiking')">Biodata</button>
+            </div>
+
+            <!-- Orang 5 -->
+            <div class="card">
+                <img class="card-img"  src="image/athar.jpeg" alt="">
+                <h3>Muhammad Fathar Ikhsan</h3>
+                <div class="role">Anggota Kelompok</div>
+                <button onclick="lihatBiodata('Muhammad Fathar Ikhsan', '0110226034', 'Cyber Security', 'Baca komik marvel dan DC')">Biodata</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Pop-up Biodata -->
+    <div class="modal" id="modalBiodata">
+        <div class="modal-content">
+            <h3 id="bioNama">Biodata</h3>
+            <p><strong>NIM:</strong> <span id="bioNim"></span></p>
+            <p><strong>Peminatan:</strong> <span id="bioPeminatan"></span></p>
+            <p><strong>Hobi:</strong> <span id="bioHobi"></span></p>
+            <button class="close-btn" onclick="tutupModal()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Website Portofolio Kelompok. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        function lihatBiodata(nama, nim, peminatan, hobi) {
+            document.getElementById('bioNama').innerText = nama;
+            document.getElementById('bioNim').innerText = nim;
+            document.getElementById('bioPeminatan').innerText = peminatan;
+            document.getElementById('bioHobi').innerText = hobi;
+            
+            document.getElementById('modalBiodata').style.display = 'flex';
+        }
+
+        function tutupModal() {
+            document.getElementById('modalBiodata').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
